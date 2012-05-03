@@ -1,0 +1,22 @@
+#content { 
+	width:900px;
+	margin:auto;
+	position:relative;
+	border:1px solid left;
+}
+
+.description { 
+	float:left;
+	width:400px;
+}
+
+.image { 
+	width:200px;
+	max-height:200px;
+	float:left;
+}
+
+.product { 
+	height:200px;
+	clear:both;
+}
