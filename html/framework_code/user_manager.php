@@ -1,8 +1,7 @@
 <?
-$cookie_name = $GLOBALS['APP_NAME']."_user_cookie"; 
 
 
-//check if Cookie already exists 
+//check if Session already exists 
 if (isset($_SESSION['session_id'])){ 
     $id = $_SESSION['session_id'];
     $existing_data = show_document("users", $id);
@@ -23,7 +22,6 @@ else {
     $_SESSION['session_id'] = $id;
     $_SESSION['session_auth'] = 'temp';
     $progress = update_document('users', $id, $user);
-    $json['status']= 'creating new user';
 }
 
 

@@ -45,8 +45,7 @@ $(document).ready(function() {
 					adi_data = {"product_id":product_id, "user_id":user_id};
 					var adi_data_clean = encodeURIComponent(JSON.stringify(adi_data));
 					$.get("data/adi/create/?json_string=true&json_data=" + adi_data_clean, function(adi_data) {
-						alert(adi_data.data["_id"]["$oid"]);
-						$(elem).next(".added_link").html("made"); 
+						$(elem).next(".added_link").html("<a href='adi.php?id="+adi_data.data["_id"]["$oid"]+"'>Share your thing</a>"); 
 					});
 				});
 			}
@@ -57,7 +56,7 @@ $(document).ready(function() {
 				adi_data = {"product_id":product_id, "user_id":user_id};
 				var adi_data_clean = encodeURIComponent(JSON.stringify(adi_data));
 				$.get("data/adi/create/?json_string=true&json_data=" + adi_data_clean, function(data) {
-					alert(adi_data.data._id.oid); 
+					$(elem).next(".added_link").html("<a href='adi.php?id="+adi_data.data["_id"]["$oid"]+"'>Share your thing</a>"); 
 					$(elem).next(".added_link").html("made");
 				});	
 			}

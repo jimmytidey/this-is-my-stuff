@@ -25,25 +25,27 @@ if ($user) {
     
     //check if a user with this FB ID already exists
     $data = $facebook->api('/me');
-    $fb_id = $data['id'];   
+    $fb_id = $data['id'];
+    $fb_name = $data['name'];
     $query= '{fb_id:"'.$fb_id.'"}';
     $result = search_collection("users", $query);
 
     //Cannot sign into pre-existing user, should upgrade current accout 
     if (!isset($result['data'][0]->_id)) {
         $session_id = $_SESSION['session_id'];
-        $data = array('fb_id'=> $fb_id, 'soc_net_auth' => 'fb_id');        
+        $data = array('fb_id'=> $fb_id, 'soc_net_auth' => 'fb_id', 'name' => $fb_name);        
         $result = update_document('users', $session_id, $data);
         $_SESSION['authenticated']= 'true';
-        $_SESSION['session_auth'] = "fb";        
+        $_SESSION['session_auth'] = "fb";  
+        $_SESSION['session_user_name'] =  $fb_name ;        
     }
     
-    else { 
-        $cookie_name = $GLOBALS['APP_NAME']."_user_cookie";
+    else {
         $user_id = $result['data'][0]->_id;
         $_SESSION['session_id'] = $user_id;
         $_SESSION['authenticated']= 'true';
-        $_SESSION['session_auth'] = "fb";        
+        $_SESSION['session_auth'] = "fb";  
+        $_SESSION['session_user_name'] =  $fb_name ;       
     }
     
     
