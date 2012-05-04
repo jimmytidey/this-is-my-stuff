@@ -24,7 +24,7 @@ $GLOBALS['FB_PERMISSIONS']  = 'user_about_me,friends_about_me,user_activities,fr
 
 
 //MONGODB
-$GLOBALS['DB_LOCATION'] 	= "https://api.mongolab.com/api/1/databases/jimmytidey";
+$GLOBALS['DB_LOCATION'] 	= "https://api.mongolab.com/api/1/databases/jimmy2";
 $GLOBALS['DB_API_KEY']		= "4f4fcacce4b085da4b636af4";
 
 //PUBNUB
